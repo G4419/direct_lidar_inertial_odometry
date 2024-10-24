@@ -82,6 +82,12 @@ private:
 
   void debug();
 
+  void saveTUMPose();
+
+  std::ofstream record_file;
+
+  double scan_end_time;
+
   ros::NodeHandle nh;
   ros::Timer publish_timer;
 
@@ -244,11 +250,11 @@ private:
   };
 
   struct Frames {
-    Eigen::Vector3f b;
-    Eigen::Vector3f w;
+    Eigen::Vector3f b; //body frame
+    Eigen::Vector3f w; //world frame
   };
 
-  struct Velocity {
+  struct Velocity { 
     Frames lin;
     Frames ang;
   };
